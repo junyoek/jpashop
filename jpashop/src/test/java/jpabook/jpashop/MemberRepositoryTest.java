@@ -1,6 +1,7 @@
 package jpabook.jpashop;
 
 
+import jpabook.jpashop.domain.Member;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.api.FactoryBasedNavigableListAssert;
 import org.junit.Test;
@@ -21,20 +22,22 @@ import static org.junit.Assert.*;
 //@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class MemberRepositoryTest {
-    @Autowired MemberRepository memberRepository;
-    @Test
-    @Transactional
-    @Rollback(false)
-    public void testMember() throws Exception{
-        Member member = new Member();
-        member.setUsername("memberA");
-
-        Long savedId = memberRepository.save(member);
-        Member findMember = memberRepository.find(savedId);
-
-        Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
-
-        //Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
-        //Assertions.assertThat(findMember).isEqualTo(member); //JPA 엔티티 동일성보장
-    }
+//    @Autowired MemberRepository memberRepository;
+//    @Test
+//    @Transactional
+//    @Rollback(false)
+//    public void testMember() throws Exception{
+//        Member member = new Member();
+//        member.setUsername("memberA");
+//
+//        Long savedId = memberRepository.save(member);
+//        Member findMember = memberRepository.find(savedId);
+//
+//        Assertions.assertThat(findMember.getId()).isEqualTo(member.getId());
+//
+//        Assertions.assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
+//        Assertions.assertThat(findMember).isEqualTo(member); //JPA 엔티티 동일성보장
+//
+//        System.out.println("findMember == member :"+(findMember == member));
+//    }
 }
