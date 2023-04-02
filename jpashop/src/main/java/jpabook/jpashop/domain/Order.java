@@ -13,7 +13,7 @@ public class Order {
     @Id @GeneratedValue
     @Column(name = "order_id")
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY) //fetch = FetchType.LAZY 꼭해줘야 n+1 발생하지 않음
     @JoinColumn(name = "member_id")
     private Member member; //주문 회원
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
